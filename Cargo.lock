@@ -1277,7 +1277,6 @@ dependencies = [
  "clap",
  "http",
  "log",
- "num-bigint",
  "rpassword",
  "tokio",
  "tonic",
