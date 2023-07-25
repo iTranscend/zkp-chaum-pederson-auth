@@ -1,0 +1,16 @@
+FROM rust:1.71.0-slim-buster as build
+WORKDIR /app
+
+RUN apt update && apt install -y protobuf-compiler && apt autoclean
+
+COPY . .
+
+RUN cargo build -p zkp-client --release
+
+FROM debian:buster-slim
+WORKDIR /app
+
+# RUN apt update && apt install -y ca-certificates && apt autoclean
+COPY --from=build /app/target/release/zkp-client .
+
+ENTRYPOINT ["./zkp-client"]
