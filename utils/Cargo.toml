@@ -1,0 +1,13 @@
+[package]
+name = "zkp-utils"
+version = "0.1.0"
+authors = ["ZKP Team <team@z.kp>"]
+edition = "2021"
+description = "ZKP Auth Utils"
+
+[dependencies]
+env_logger = "0.10.0"
+log = "0.4.19"
+num-bigint = { version = "0.4.3", features = ["rand"] }
+num-traits = "0.2.15"
+rand = "0.8.5"
