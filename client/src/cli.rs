@@ -1,5 +1,5 @@
 use clap::{Parser, Subcommand};
-use http::uri::{InvalidUri, Uri};
+use url::{ParseError, Url};
 
 #[derive(Debug, Parser)]
 #[clap(author, about, version)]
@@ -8,8 +8,8 @@ pub struct Args {
     pub command: Command,
 }
 
-fn test_validity(val: &str) -> Result<String, InvalidUri> {
-    let _: Uri = val.try_into()?;
+fn test_validity(val: &str) -> Result<String, ParseError> {
+    let _: Url = val.parse()?;
     Ok(val.to_string())
 }
 
