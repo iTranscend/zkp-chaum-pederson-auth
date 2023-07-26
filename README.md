@@ -111,19 +111,25 @@ See [Notes](NOTES.md) for more information on the application design and possibl
 
 Alternatively, if you want to use docker and you have docker installed. Follow the steps below:
 
+- Build the images
+
+  ```console
+  docker compose build
+  ```
+
 - Start the server
 
   ```console
   docker compose up zkp-server
   ```
 
-- Connect to the server and register a user
+- In another terminal, connect to the server and register a user
 
   ```console
   docker compose run --rm zkp-client register
   ```
 
-- Login
+- Now you can login (you get 3 tries to enter the correct password)
 
   ```console
   docker compose run --rm zkp-client login
