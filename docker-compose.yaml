@@ -7,6 +7,7 @@ services:
     container_name: zkp-server
     build:
       dockerfile: Dockerfile.server
+    command: -l 0.0.0.0
     ports:
       - "3000:3000"
     init: true
