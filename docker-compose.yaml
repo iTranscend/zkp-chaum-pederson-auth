@@ -1,6 +1,6 @@
 version: '3.8'
 
-services: 
+services:
   # docker compose up zkp-server
   zkp-server:
     image: zkp-server:latest
@@ -8,11 +8,13 @@ services:
     build:
       dockerfile: Dockerfile.server
     command: -l 0.0.0.0
+    environment:
+      - RUST_LOG_STYLE=always
     ports:
       - "3000:3000"
     init: true
     restart: always
-  
+
   # docker compose run --rm zkp-client register
   # docker compose run --rm zkp-client login
   zkp-client:
