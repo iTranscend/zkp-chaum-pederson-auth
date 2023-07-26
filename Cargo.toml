@@ -4,7 +4,7 @@ members = [".", "server", "client", "utils"]
 [package]
 name = "zkp-common"
 version = "0.1.0"
-authors = ["ZKP Team <team@z.kp>"]
+authors = ["Femi Bankole <llordbanks500@gmail.com>"]
 edition = "2021"
 description = "ZKP Auth Common"
 
