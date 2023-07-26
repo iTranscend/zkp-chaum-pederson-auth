@@ -103,6 +103,7 @@ pub mod consts {
 
 mod zkp_auth;
 
+// Controlled re-export of generated proto code
 pub mod proto {
     pub use super::zkp_auth::{
         auth_client::AuthClient,

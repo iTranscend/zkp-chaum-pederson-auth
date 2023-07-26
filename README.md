@@ -79,7 +79,7 @@ See [Notes](NOTES.md) for more information on the application design and possibl
 
   </details>
 
-- Now you can login
+- Now you can login (you get 3 tries to enter the correct password)
 
   ```console
   $ cargo run -p zkp-client login
