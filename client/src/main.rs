@@ -40,7 +40,7 @@ async fn register_user(details: cli::RegisterCommand) -> anyhow::Result<()> {
                     ),
                     _ => {
                         error!(
-                            "failed to register user: '{}{:?}{}",
+                            "failed to register user: '{}{:?}{}'",
                             style::fg::RED,
                             err.code(),
                             style::fg::RESET
@@ -109,7 +109,7 @@ async fn login_user(details: cli::LoginCommand) -> anyhow::Result<()> {
                             ),
                             _ => {
                                 error!(
-                                    "failed to create authentication challenge: '{}{:?}{}",
+                                    "failed to create authentication challenge: '{}{:?}{}'",
                                     style::fg::RED,
                                     err.code(),
                                     style::fg::RESET
@@ -160,7 +160,7 @@ async fn login_user(details: cli::LoginCommand) -> anyhow::Result<()> {
                         }
                         _ => {
                             error!(
-                                "failed to verify authentication: '{}{:?}{}",
+                                "failed to verify authentication: '{}{:?}{}'",
                                 style::fg::RED,
                                 err.code(),
                                 style::fg::RESET
