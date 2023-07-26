@@ -10,7 +10,8 @@ pub struct Parameters {
 }
 
 impl Parameters {
-    // (G ^ x) mod P
+    // y1 = (G ^ x) mod P
+    // y2 = (H ^ x) mod P
     pub fn obfuscate(&self, x: &BigUint) -> (BigUint, BigUint) {
         let y1 = self.G.modpow(&x, &self.P);
         let y2 = self.H.modpow(&x, &self.P);
