@@ -7,7 +7,8 @@ use log::warn;
 use zkp_utils::style;
 
 pub const DEFAULT_PORT: u16 = 3000;
-pub const DEFAULT_ADDR: SocketAddr = SocketAddr::new(IpAddr::V4(Ipv4Addr::LOCALHOST), DEFAULT_PORT);
+pub const DEFAULT_ADDR: SocketAddr =
+    SocketAddr::new(IpAddr::V4(Ipv4Addr::UNSPECIFIED), DEFAULT_PORT);
 
 #[derive(Debug, Parser)]
 #[clap(author, about, version)]
@@ -16,7 +17,7 @@ pub struct Args {
     /// Valid: `3000`, `127.0.0.1`, `127.0.0.1:3000` [env: PORT]
     #[clap(short, long, value_name = "URI")]
     #[clap(verbatim_doc_comment, value_parser = addr_from_str)]
-    #[clap(default_value = "127.0.0.1", hide_default_value = true)]
+    #[clap(default_value = "0.0.0.0", hide_default_value = true)]
     pub listen: SocketAddr,
 }
 
