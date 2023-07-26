@@ -8,7 +8,7 @@ See [Notes](NOTES.md) for more information on the application design and possibl
 
 ## Usage
 
-Using cargo
+### Using cargo
 
 - Start the server
 
@@ -21,20 +21,6 @@ Using cargo
   <details>
   <summary>See full help information with the <code>--help</code> flag.</summary>
 
-  You can also specify the address and port you want your server to run on as such:
-
-  ```console
-  cargo run -p zkp-server -- -l 127.0.0.1:3004
-  ```
-
-  Additionally, the app checks to see if the `PORT` environment variable is defined:
-
-  ```console
-  $ PORT=5004 cargo run -p zkp-server
-  ================== ZKP Auth (Server) ==================
-  [i] Listening on '127.0.0.1:5004'
-  ```
-
   ```console
   ZKP Auth Server
 
@@ -45,6 +31,22 @@ Using cargo
                         Valid: `3000`, `127.0.0.1`, `127.0.0.1:3000` [env: PORT]
     -h, --help          Print help
     -V, --version       Print version
+  ```
+
+  You can specify the address and port you want your server to run on as such:
+
+  ```console
+  $ cargo run -p zkp-server -- -l 127.0.0.1:3004
+  ================== ZKP Auth (Server) ==================
+  [i] Listening on '127.0.0.1:3004'
+  ```
+
+  Additionally, the app checks to see if the `PORT` environment variable is defined:
+
+  ```console
+  $ PORT=5004 cargo run -p zkp-server
+  ================== ZKP Auth (Server) ==================
+  [i] Listening on '127.0.0.1:5004'
   ```
 
   </details>
