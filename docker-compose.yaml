@@ -15,8 +15,8 @@ services:
     init: true
     restart: always
 
-  # docker compose run --rm zkp-client register
-  # docker compose run --rm zkp-client login
+  # docker compose run zkp-client register
+  # docker compose run zkp-client login
   zkp-client:
     image: zkp-client:latest
     build:
