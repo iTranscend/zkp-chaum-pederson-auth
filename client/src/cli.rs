@@ -8,11 +8,6 @@ pub struct Args {
     pub command: Command,
 }
 
-fn test_validity(val: &str) -> Result<String, ParseError> {
-    let _: Url = val.parse()?;
-    Ok(val.to_string())
-}
-
 #[derive(Debug, Subcommand)]
 pub enum Command {
     /// Registers a new user
@@ -36,6 +31,7 @@ pub struct RegisterCommand {
         hide_env_values = true
     )]
     pub password: Option<String>,
+
     #[clap(flatten)]
     pub server: ServerOptions,
 }
@@ -55,6 +51,7 @@ pub struct LoginCommand {
         hide_env_values = true
     )]
     pub password: Option<String>,
+
     #[clap(flatten)]
     pub server: ServerOptions,
 }
@@ -62,6 +59,12 @@ pub struct LoginCommand {
 #[derive(Debug, Parser)]
 pub struct ServerOptions {
     /// Specifies the server address to connect to
-    #[clap(short = 's', long = "server", value_name = "URI", default_value = "http://127.0.0.1:3000", value_parser = test_validity)]
+    #[clap(short = 's', long = "server", value_name = "URI")]
+    #[clap(default_value = "http://127.0.0.1:3000", value_parser = test_validity)]
     pub addr: String,
+}
+
+fn test_validity(val: &str) -> Result<String, ParseError> {
+    let _: Url = val.parse()?;
+    Ok(val.to_string())
 }
