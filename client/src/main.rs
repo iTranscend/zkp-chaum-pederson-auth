@@ -78,8 +78,8 @@ async fn login_user(details: cli::LoginCommand) -> anyhow::Result<()> {
         for i in 0..MAX_TRIES {
             'inner: {
                 if i > 0 {
-                    user_id = utils::maybe_input(None, "Enter a User ID:")?;
-                    password = utils::maybe_password(None, "Select a Password:")?;
+                    user_id = utils::maybe_input(None, "Enter Your User ID:")?;
+                    password = utils::maybe_password(None, "Enter Your Password:")?;
                 }
                 let x = string::as_biguint(&password);
 
@@ -176,7 +176,7 @@ async fn login_user(details: cli::LoginCommand) -> anyhow::Result<()> {
                 MAX_TRIES
             );
         }
-        error!("failed to register user after {} tries", MAX_TRIES);
+        error!("failed to login user after {} tries", MAX_TRIES);
     }
     eprintln!("=================== ZKP Auth (Login) ==================");
 
