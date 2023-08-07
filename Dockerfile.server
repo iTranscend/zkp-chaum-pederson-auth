@@ -1,16 +1,19 @@
-FROM rust:1.71.0-slim-buster as build
+FROM lukemathwalker/cargo-chef:latest-rust-1 as chef
 WORKDIR /app
 
-RUN apt update && apt install -y protobuf-compiler && apt autoclean
-
+FROM chef as planner
 COPY . .
+RUN cargo chef prepare --recipe-path recipe.json
 
+FROM chef as builder
+RUN apt update && apt install -y protobuf-compiler && apt autoclean
+COPY --from=planner /app/recipe.json recipe.json
+RUN cargo chef cook --release --recipe-path recipe.json
+COPY . .
 RUN cargo build -p zkp-server --release
 
-FROM debian:buster-slim
+FROM debian:bullseye-slim
 WORKDIR /app
+COPY --from=builder /app/target/release/zkp-server /usr/local/bin
 
-# RUN apt update && apt install -y ca-certificates && apt autoclean
-COPY --from=build /app/target/release/zkp-server .
-
-ENTRYPOINT ["./zkp-server"]
+ENTRYPOINT ["/usr/local/bin/zkp-server"]
