@@ -2,7 +2,7 @@ use clap::Parser;
 use log::error;
 
 use zkp_common::{consts, proto};
-use zkp_utils::{biguint, logger, random, style, string};
+use zkp_utils::{biguint, logger, random, string, style};
 
 mod cli;
 mod utils;

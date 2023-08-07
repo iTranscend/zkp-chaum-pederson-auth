@@ -126,13 +126,13 @@ Alternatively, if you want to use docker and you have docker installed. Follow t
 - In another terminal, connect to the server and register a user
 
   ```console
-  docker compose run --rm zkp-client register
+  docker compose run zkp-client register
   ```
 
 - Now you can login (you get 3 tries to enter the correct password)
 
   ```console
-  docker compose run --rm zkp-client login
+  docker compose run zkp-client login
   ```
 
 ## Contribution

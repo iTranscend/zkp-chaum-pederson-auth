@@ -21,7 +21,8 @@ services:
     image: zkp-client:latest
     build:
       dockerfile: Dockerfile.client
-    network_mode: host
+      args:
+        ZKP_CLIENT_ADDR_OVERRIDE: http://zkp-server:3000
     init: true
     depends_on:
       - zkp-server

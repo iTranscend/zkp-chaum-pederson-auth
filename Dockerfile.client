@@ -5,12 +5,12 @@ RUN apt update && apt install -y protobuf-compiler && apt autoclean
 
 COPY . .
 
+ARG ZKP_CLIENT_ADDR_OVERRIDE
 RUN cargo build -p zkp-client --release
 
 FROM debian:buster-slim
 WORKDIR /app
 
-# RUN apt update && apt install -y ca-certificates && apt autoclean
 COPY --from=build /app/target/release/zkp-client .
 
 ENTRYPOINT ["./zkp-client"]
