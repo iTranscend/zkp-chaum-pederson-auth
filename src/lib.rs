@@ -101,6 +101,7 @@ pub mod consts {
     }
 }
 
+#[rustfmt::skip]
 mod zkp_auth;
 
 // Controlled re-export of generated proto code
