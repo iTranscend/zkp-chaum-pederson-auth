@@ -13,6 +13,11 @@ jobs:
       - name: Checkout sources
         uses: actions/checkout@main
 
+      - name: Install protoc
+        run: |
+          sudo apt update
+          sudo apt install protobuf-compiler
+
       - name: Run cargo check
         run: cargo check --workspace --all-targets --all-features --verbose
 
@@ -26,6 +31,11 @@ jobs:
         uses: Swatinem/rust-cache@v2
         with:
           cache-on-failure: true
+
+      - name: Install protoc
+        run: |
+          sudo apt update
+          sudo apt install protobuf-compiler
 
       - name: Run tests
         run: |
